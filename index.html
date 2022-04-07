@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Alignment Quiz</title>
+        <script src="script.js"></script>
+    </head>
+    <body onload="initializePeople()">
+        <div style="float: left">
+            <h1 id="counter">Run Number: 0</h1>
+            <div>
+                <p>Who is more Good?</p>
+                <button id="person1Good" type="button" onclick="good1Clicked()"></button>
+                <button id="tie" type="button" onclick="tie1Clicked()">Tie</button>
+                <button id="person2Good" type="button" onclick="good2Clicked()"></button>
+                <p>Selection:</p>
+                <p id="selection1"></p>
+            </div>
+            <div>
+                <p>Who is more Lawful?</p>
+                <button id="person1Law" type="button" onclick="law1Clicked()"></button>
+                <button id="tie" type="button" onclick="tie2Clicked()">Tie</button>
+                <button id="person2Law" type="button" onclick="law2Clicked()"></button>
+                <p>Selection:</p>
+                <p id="selection2"></p>
+            </div>
+        </div>
+        <div style="float: right">
+            <h1>Standings</h1>
+            <table id="standings"></table>
+            <h1>Upload/Download CSV</h1>
+            <textarea id="input" type="text" placeholder="Enter CSV File"></textarea>
+            <button onclick="loadCSV()">Upload</button>
+            <a id="downloadLink" download="standings">Download CSV</a>
+        </div>
+    </body>
+</html>
