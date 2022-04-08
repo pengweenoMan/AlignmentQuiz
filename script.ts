@@ -79,6 +79,7 @@ function initializePeople() {
 function updateTable() {
     let table = document.getElementById("standings") as HTMLTableElement;
     table.innerHTML = "";
+    csv = "";
 
     for(const person of people) {
         let row = table.insertRow(0);

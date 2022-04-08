@@ -69,6 +69,7 @@ function initializePeople() {
 function updateTable() {
     var table = document.getElementById("standings");
     table.innerHTML = "";
+    csv = "";
     for (var _i = 0, people_1 = people; _i < people_1.length; _i++) {
         var person = people_1[_i];
         var row = table.insertRow(0);
