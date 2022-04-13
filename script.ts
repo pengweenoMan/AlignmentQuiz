@@ -72,7 +72,8 @@ function initializePeople() {
     document.getElementById("person2Law").innerHTML = person2.name;
     document.getElementById("counter").innerHTML = `Run Number: ${runCount}`;
     document.getElementById("selection1").innerHTML = "";
-    document.getElementById("selection2").innerHTML = ""; 
+    document.getElementById("selection2").innerHTML = "";
+    people.sort((one, two) => one.good - two.good);
     updateTable();
 }
 

@@ -64,6 +64,7 @@ function initializePeople() {
     document.getElementById("counter").innerHTML = "Run Number: ".concat(runCount);
     document.getElementById("selection1").innerHTML = "";
     document.getElementById("selection2").innerHTML = "";
+    people.sort(function (one, two) { return one.good - two.good; });
     updateTable();
 }
 function updateTable() {
