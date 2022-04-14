@@ -108,10 +108,6 @@ function loadCSV() {
     updateTable();
 }
 
-/*function choiceClicked(type, choice) {
-    
-}*/
-
 function updateGoodLaw() {
     person1.good = newGood1;
     person2.good = newGood2;
@@ -120,80 +116,51 @@ function updateGoodLaw() {
     runCount++;
 }
 
-function good1Clicked() {
-    newGood1 = person1.good + 25 * (1 - expectedGood);
-    newGood2 = person2.good + 25 * (expectedGood - 1);
-
-    if(isLawClicked) {
-        updateGoodLaw();
-        initializePeople();
-    } else {
+function choiceClicked(type, choice) {
+    if(type === "good") {
         isGoodClicked = true;
-        document.getElementById("selection1").innerHTML = person1.name;
-    } 
-}
 
-function good2Clicked() {
-    newGood1 = person1.good - 25 * expectedGood;
-    newGood2 = person2.good + 25 * expectedGood;
-
-    if(isLawClicked) {
-        updateGoodLaw();
-        initializePeople();
-    } else {
-        isGoodClicked = true;
-        document.getElementById("selection1").innerHTML = person2.name;
-    } 
-}
-
-function law1Clicked() {
-    newLaw1 = person1.law + 25 * (1 - expectedLaw);
-    newLaw2 = person2.law + 25 * (expectedLaw - 1);
-
-    if(isGoodClicked) {
-        updateGoodLaw();
-        initializePeople();
+        switch(choice) {
+            case 1:
+                newGood1 = person1.good + 25 * (1 - expectedGood);
+                newGood2 = person2.good + 25 * (expectedGood - 1);
+                document.getElementById("selection1").innerHTML = person1.name;
+                break;
+            case 2:
+                newGood1 = person1.good + 25 * (.5 - expectedGood);
+                newGood2 = person2.good + 25 * (expectedGood - .5);
+                document.getElementById("selection1").innerHTML = "Tie";
+                break;
+            case 3:
+                newGood1 = person1.good - 25 * expectedGood;
+                newGood2 = person2.good + 25 * expectedGood;
+                document.getElementById("selection1").innerHTML = person2.name;
+                break;
+        }
     } else {
         isLawClicked = true;
-        document.getElementById("selection2").innerHTML = person1.name;
-    } 
-}
 
-function law2Clicked() {
-    newLaw1 = person1.law - 25 * expectedLaw;
-    newLaw2 = person2.law + 25 * expectedLaw;
+        switch(choice) {
+            case 1:
+                newLaw1 = person1.law + 25 * (1 - expectedLaw);
+                newLaw2 = person2.law + 25 * (expectedLaw - 1);
+                document.getElementById("selection2").innerHTML = person1.name;
+                break;
+            case 2:
+                newLaw1 = person1.law + 25 * (.5 - expectedLaw);
+                newLaw2 = person2.law + 25 * (expectedLaw - .5);
+                document.getElementById("selection2").innerHTML = "Tie";
+                break;
+            case 3:
+                newLaw1 = person1.law - 25 * expectedLaw;
+                newLaw2 = person2.law + 25 * expectedLaw;
+                document.getElementById("selection2").innerHTML = person2.name;
+                break;
+        }
+    }
 
-    if(isGoodClicked) {
+    if(isGoodClicked && isLawClicked) {
         updateGoodLaw();
         initializePeople();
-    } else {
-        isLawClicked = true;
-        document.getElementById("selection2").innerHTML = person2.name;
-    } 
-}
-
-function tie1Clicked() {
-    newGood1 = person1.good + 25 * (.5 - expectedGood);
-    newGood2 = person2.good + 25 * (expectedGood - .5);
-
-    if(isLawClicked) {
-        updateGoodLaw();
-        initializePeople();
-    } else {
-        isGoodClicked = true;
-        document.getElementById("selection1").innerHTML = "Tie";
-    } 
-}
-
-function tie2Clicked() {
-    newLaw1 = person1.law + 25 * (.5 - expectedLaw);
-    newLaw2 = person2.law + 25 * (expectedLaw - .5);
-
-    if(isGoodClicked) {
-        updateGoodLaw();
-        initializePeople();
-    } else {
-        isLawClicked = true;
-        document.getElementById("selection2").innerHTML = "Tie";
-    } 
+    }
 }
